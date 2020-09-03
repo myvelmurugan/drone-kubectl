@@ -7,7 +7,7 @@ if [ -z ${PLUGIN_NAMESPACE} ]; then
 fi
 
 if [ -z ${PLUGIN_KUBERNETES_USER} ]; then
-  PLUGIN_KUBERNETES_USER="default"
+  PLUGIN_KUBERNETES_USER="drone-deploy"
 fi
 
 if [ ! -z ${PLUGIN_KUBERNETES_TOKEN} ]; then
@@ -22,7 +22,7 @@ if [ ! -z ${PLUGIN_KUBERNETES_CERT} ]; then
   KUBERNETES_CERT=${PLUGIN_KUBERNETES_CERT}
 fi
 
-kubectl config set-credentials default --token=${KUBERNETES_TOKEN}
+kubectl config set-credentials drone-deploy --token=${KUBERNETES_TOKEN}
 
 if [ ! -z ${KUBERNETES_CERT} ]; then
   echo ${KUBERNETES_CERT} | base64 -d > ca.crt
