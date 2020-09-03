@@ -1,12 +1,10 @@
-FROM bitnami/kubectl:1.13
+FROM bitnami/kubectl:1.17
 
-LABEL maintainer "Sinlead <opensource@sinlead.com>"
-
-COPY init-kubectl kubectl /opt/sinlead/kubectl/bin/
+COPY init-kubectl kubectl /usr/local/kubectl/bin/
 
 USER root
 
-ENV PATH="/opt/sinlead/kubectl/bin:$PATH"
+ENV PATH="/usr/local/kubectl/bin:$PATH"
 
 ENTRYPOINT ["kubectl"]
 
